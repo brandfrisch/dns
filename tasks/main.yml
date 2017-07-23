@@ -1,0 +1,11 @@
+---
+# tasks file for dns
+
+- name: resolv - Create resolv.conf
+  when: dns_nameserver | length > 0
+  template:
+    src: "resolv.conf.j2"
+    dest: "/etc/resolv.conf"
+  tags:
+    - setup
+    - dns

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  vars:
+    dns_nameserver:
+      - 8.8.8.8
+      - 8.8.4.4
+  roles:
+    - role: dns

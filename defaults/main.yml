@@ -1,0 +1,17 @@
+---
+# defaults file for dns
+
+# Default nameservers
+dns_nameserver: []
+
+# Default domain
+dns_domain: ""
+
+# Default search list
+dns_search: []
+
+# Defautl sort list
+dns_sortlist: []
+
+# Default options
+dns_options: []

@@ -1,0 +1,16 @@
+# {{ ansible_managed }}
+{% for item in dns_nameserver -%}
+  nameserver {{ item }}
+{% endfor %}
+{% if dns_domain | length > 0 -%}
+  domain {{ dns_domain }}
+{% endif %}
+{% if dns_search | length > 0 -%}
+  search {{ dns_search | join(" ") }}
+{% endif %}
+{% if dns_sortlist | length > 0 -%}
+  sortlist {{ dns_sortlist | join(" ") }}
+{% endif %}
+{% if dns_options | length > 0 -%}
+  options {{ dns_options | join(" ") }}
+{% endif %}
