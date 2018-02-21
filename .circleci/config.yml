@@ -44,4 +44,4 @@ jobs:
           name: "run tests"
           command: |
             source ~/.venv/bin/activate
-            ansible-lint .
+            ansible-lint ~/dns
