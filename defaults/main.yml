@@ -2,7 +2,9 @@
 # defaults file for dns
 
 # Default nameservers
-dns_nameserver: []
+dns_nameservers:
+  - 8.8.8.8
+  - 8.8.4.4
 
 # Default domain
 dns_domain: ""
@@ -15,3 +17,6 @@ dns_sortlist: []
 
 # Default options
 dns_options: []
+
+dns_config_files:
+  - resolv.conf.j2

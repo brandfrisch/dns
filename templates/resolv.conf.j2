@@ -1,6 +1,6 @@
 # {{ ansible_managed }}
-{% for item in dns_nameserver -%}
-  nameserver {{ item }}
+{% for dns_server in dns_nameservers -%}
+  nameserver {{ dns_server }}
 {% endfor %}
 {% if dns_domain | length > 0 -%}
   domain {{ dns_domain }}

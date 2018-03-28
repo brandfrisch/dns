@@ -1,14 +1,25 @@
 ---
 # tasks file for dns
 
-- name: resolv - Create resolv.conf
-  when: dns_nameserver | length > 0
+- name: Stop resolvconf
+  service:
+    name: resolvconf
+    state: stopped
+
+- name: Remove resolvconf
+  package:
+    name: resolvconf
+    state: absent
+
+- name: Create resolv.conf
   template:
-    src: "resolv.conf.j2"
-    dest: "/etc/resolv.conf"
+    src: "{{ item }}"
+    dest: "/etc/{{ item | basename | replace('.j2', '') }}"
     owner: root
     group: root
     mode: 0644
+  with_items:
+    - "{{ dns_config_files }}"
   tags:
     - setup
     - dns
