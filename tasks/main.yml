@@ -5,11 +5,17 @@
   service:
     name: resolvconf
     state: stopped
+  tags:
+    - setup
+    - dns
 
 - name: Remove resolvconf
   package:
     name: resolvconf
     state: absent
+  tags:
+    - setup
+    - dns
 
 - name: Create resolv.conf
   template:
